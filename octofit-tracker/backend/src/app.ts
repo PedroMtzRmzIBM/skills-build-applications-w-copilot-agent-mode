@@ -19,7 +19,8 @@ app.listen(PORT, () => {
     let publicUrl = `http://localhost:${PORT}`;
     if (codespace) {
         // Provide a Codespaces-friendly preview URL when available.
-        publicUrl = `https://${codespace}-${PORT}.githubpreview.dev`;
+        // Format: https://$CODESPACE_NAME-8000.app.github.dev
+        publicUrl = `https://${codespace}-8000.app.github.dev`;
     }
 
     console.log(`Server is running on ${publicUrl}`);
