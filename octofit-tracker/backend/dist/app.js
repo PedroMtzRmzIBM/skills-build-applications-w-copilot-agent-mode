@@ -14,12 +14,4 @@ app.use(express_1.default.urlencoded({ extended: true }));
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 app.use('/api', index_1.default);
-app.listen(PORT, () => {
-    const codespace = process.env.CODESPACE_NAME;
-    let publicUrl = `http://localhost:${PORT}`;
-    if (codespace) {
-        // Provide a Codespaces-friendly preview URL when available.
-        publicUrl = `https://${codespace}-${PORT}.githubpreview.dev`;
-    }
-    console.log(`Server is running on ${publicUrl}`);
-});
+exports.default = app;

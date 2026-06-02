@@ -14,14 +14,4 @@ connectDatabase()
 
 app.use('/api', routes);
 
-app.listen(PORT, () => {
-    const codespace = process.env.CODESPACE_NAME;
-    let publicUrl = `http://localhost:${PORT}`;
-    if (codespace) {
-        // Provide a Codespaces-friendly preview URL when available.
-        // Format: https://$CODESPACE_NAME-8000.app.github.dev
-        publicUrl = `https://${codespace}-8000.app.github.dev`;
-    }
-
-    console.log(`Server is running on ${publicUrl}`);
-});
+export default app;
